@@ -1,6 +1,7 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:dio/dio.dart';
+import 'package:stocks_price_tracker/network/endpoints.dart';
 
 import 'interceptors/auth_interceptor.dart';
 
@@ -12,13 +13,11 @@ class HttpService {
   );
 
   Future init() async {
-    String baseUrl = 'https://finnhub.io/api/v1/';
-
     _dio.options = BaseOptions(
       connectTimeout: const Duration(seconds: 60),
       receiveTimeout: const Duration(seconds: 60),
       responseType: ResponseType.json,
-      baseUrl: baseUrl,
+      baseUrl: Endpoints.baseUrl,
       validateStatus: (status) => status == 200 || status == 401,
     );
 

@@ -1,10 +1,11 @@
 import 'package:dio/dio.dart';
+import 'package:stocks_price_tracker/network/endpoints.dart';
 
 class AuthInterceptor implements Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     options.queryParameters.addAll(
-      {'token': 'cs202h1r01qpjum5mbm0cs202h1r01qpjum5mbmg'},
+      {'token': Endpoints.apiKey},
     );
     return handler.next(options);
   }

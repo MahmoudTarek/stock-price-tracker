@@ -35,7 +35,7 @@ class StockListItem extends StatelessWidget {
           ),
           price == null
               ? const CircularProgressIndicator()
-              : Text(r'$' '$price'),
+              : Text(r'$' '${price?.toStringAsFixed(4)}'),
         ],
       ),
     );

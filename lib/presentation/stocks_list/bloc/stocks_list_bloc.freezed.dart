@@ -21,6 +21,7 @@ mixin _$StocksListEvent {
     required TResult Function() init,
     required TResult Function(String symbol) subscribe,
     required TResult Function(String symbol) unsubscribe,
+    required TResult Function(String symbol, double price) updatePrice,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$StocksListEvent {
     TResult? Function()? init,
     TResult? Function(String symbol)? subscribe,
     TResult? Function(String symbol)? unsubscribe,
+    TResult? Function(String symbol, double price)? updatePrice,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$StocksListEvent {
     TResult Function()? init,
     TResult Function(String symbol)? subscribe,
     TResult Function(String symbol)? unsubscribe,
+    TResult Function(String symbol, double price)? updatePrice,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$StocksListEvent {
     required TResult Function(_InitEvent value) init,
     required TResult Function(_SubscribeEvent value) subscribe,
     required TResult Function(_UnsubscribeEvent value) unsubscribe,
+    required TResult Function(_UpdatePriceEvent value) updatePrice,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$StocksListEvent {
     TResult? Function(_InitEvent value)? init,
     TResult? Function(_SubscribeEvent value)? subscribe,
     TResult? Function(_UnsubscribeEvent value)? unsubscribe,
+    TResult? Function(_UpdatePriceEvent value)? updatePrice,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$StocksListEvent {
     TResult Function(_InitEvent value)? init,
     TResult Function(_SubscribeEvent value)? subscribe,
     TResult Function(_UnsubscribeEvent value)? unsubscribe,
+    TResult Function(_UpdatePriceEvent value)? updatePrice,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,6 +127,7 @@ class _$InitEventImpl implements _InitEvent {
     required TResult Function() init,
     required TResult Function(String symbol) subscribe,
     required TResult Function(String symbol) unsubscribe,
+    required TResult Function(String symbol, double price) updatePrice,
   }) {
     return init();
   }
@@ -131,6 +138,7 @@ class _$InitEventImpl implements _InitEvent {
     TResult? Function()? init,
     TResult? Function(String symbol)? subscribe,
     TResult? Function(String symbol)? unsubscribe,
+    TResult? Function(String symbol, double price)? updatePrice,
   }) {
     return init?.call();
   }
@@ -141,6 +149,7 @@ class _$InitEventImpl implements _InitEvent {
     TResult Function()? init,
     TResult Function(String symbol)? subscribe,
     TResult Function(String symbol)? unsubscribe,
+    TResult Function(String symbol, double price)? updatePrice,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -155,6 +164,7 @@ class _$InitEventImpl implements _InitEvent {
     required TResult Function(_InitEvent value) init,
     required TResult Function(_SubscribeEvent value) subscribe,
     required TResult Function(_UnsubscribeEvent value) unsubscribe,
+    required TResult Function(_UpdatePriceEvent value) updatePrice,
   }) {
     return init(this);
   }
@@ -165,6 +175,7 @@ class _$InitEventImpl implements _InitEvent {
     TResult? Function(_InitEvent value)? init,
     TResult? Function(_SubscribeEvent value)? subscribe,
     TResult? Function(_UnsubscribeEvent value)? unsubscribe,
+    TResult? Function(_UpdatePriceEvent value)? updatePrice,
   }) {
     return init?.call(this);
   }
@@ -175,6 +186,7 @@ class _$InitEventImpl implements _InitEvent {
     TResult Function(_InitEvent value)? init,
     TResult Function(_SubscribeEvent value)? subscribe,
     TResult Function(_UnsubscribeEvent value)? unsubscribe,
+    TResult Function(_UpdatePriceEvent value)? updatePrice,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -256,6 +268,7 @@ class _$SubscribeEventImpl implements _SubscribeEvent {
     required TResult Function() init,
     required TResult Function(String symbol) subscribe,
     required TResult Function(String symbol) unsubscribe,
+    required TResult Function(String symbol, double price) updatePrice,
   }) {
     return subscribe(symbol);
   }
@@ -266,6 +279,7 @@ class _$SubscribeEventImpl implements _SubscribeEvent {
     TResult? Function()? init,
     TResult? Function(String symbol)? subscribe,
     TResult? Function(String symbol)? unsubscribe,
+    TResult? Function(String symbol, double price)? updatePrice,
   }) {
     return subscribe?.call(symbol);
   }
@@ -276,6 +290,7 @@ class _$SubscribeEventImpl implements _SubscribeEvent {
     TResult Function()? init,
     TResult Function(String symbol)? subscribe,
     TResult Function(String symbol)? unsubscribe,
+    TResult Function(String symbol, double price)? updatePrice,
     required TResult orElse(),
   }) {
     if (subscribe != null) {
@@ -290,6 +305,7 @@ class _$SubscribeEventImpl implements _SubscribeEvent {
     required TResult Function(_InitEvent value) init,
     required TResult Function(_SubscribeEvent value) subscribe,
     required TResult Function(_UnsubscribeEvent value) unsubscribe,
+    required TResult Function(_UpdatePriceEvent value) updatePrice,
   }) {
     return subscribe(this);
   }
@@ -300,6 +316,7 @@ class _$SubscribeEventImpl implements _SubscribeEvent {
     TResult? Function(_InitEvent value)? init,
     TResult? Function(_SubscribeEvent value)? subscribe,
     TResult? Function(_UnsubscribeEvent value)? unsubscribe,
+    TResult? Function(_UpdatePriceEvent value)? updatePrice,
   }) {
     return subscribe?.call(this);
   }
@@ -310,6 +327,7 @@ class _$SubscribeEventImpl implements _SubscribeEvent {
     TResult Function(_InitEvent value)? init,
     TResult Function(_SubscribeEvent value)? subscribe,
     TResult Function(_UnsubscribeEvent value)? unsubscribe,
+    TResult Function(_UpdatePriceEvent value)? updatePrice,
     required TResult orElse(),
   }) {
     if (subscribe != null) {
@@ -396,6 +414,7 @@ class _$UnsubscribeEventImpl implements _UnsubscribeEvent {
     required TResult Function() init,
     required TResult Function(String symbol) subscribe,
     required TResult Function(String symbol) unsubscribe,
+    required TResult Function(String symbol, double price) updatePrice,
   }) {
     return unsubscribe(symbol);
   }
@@ -406,6 +425,7 @@ class _$UnsubscribeEventImpl implements _UnsubscribeEvent {
     TResult? Function()? init,
     TResult? Function(String symbol)? subscribe,
     TResult? Function(String symbol)? unsubscribe,
+    TResult? Function(String symbol, double price)? updatePrice,
   }) {
     return unsubscribe?.call(symbol);
   }
@@ -416,6 +436,7 @@ class _$UnsubscribeEventImpl implements _UnsubscribeEvent {
     TResult Function()? init,
     TResult Function(String symbol)? subscribe,
     TResult Function(String symbol)? unsubscribe,
+    TResult Function(String symbol, double price)? updatePrice,
     required TResult orElse(),
   }) {
     if (unsubscribe != null) {
@@ -430,6 +451,7 @@ class _$UnsubscribeEventImpl implements _UnsubscribeEvent {
     required TResult Function(_InitEvent value) init,
     required TResult Function(_SubscribeEvent value) subscribe,
     required TResult Function(_UnsubscribeEvent value) unsubscribe,
+    required TResult Function(_UpdatePriceEvent value) updatePrice,
   }) {
     return unsubscribe(this);
   }
@@ -440,6 +462,7 @@ class _$UnsubscribeEventImpl implements _UnsubscribeEvent {
     TResult? Function(_InitEvent value)? init,
     TResult? Function(_SubscribeEvent value)? subscribe,
     TResult? Function(_UnsubscribeEvent value)? unsubscribe,
+    TResult? Function(_UpdatePriceEvent value)? updatePrice,
   }) {
     return unsubscribe?.call(this);
   }
@@ -450,6 +473,7 @@ class _$UnsubscribeEventImpl implements _UnsubscribeEvent {
     TResult Function(_InitEvent value)? init,
     TResult Function(_SubscribeEvent value)? subscribe,
     TResult Function(_UnsubscribeEvent value)? unsubscribe,
+    TResult Function(_UpdatePriceEvent value)? updatePrice,
     required TResult orElse(),
   }) {
     if (unsubscribe != null) {
@@ -465,6 +489,162 @@ abstract class _UnsubscribeEvent implements StocksListEvent {
   String get symbol;
   @JsonKey(ignore: true)
   _$$UnsubscribeEventImplCopyWith<_$UnsubscribeEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdatePriceEventImplCopyWith<$Res> {
+  factory _$$UpdatePriceEventImplCopyWith(_$UpdatePriceEventImpl value,
+          $Res Function(_$UpdatePriceEventImpl) then) =
+      __$$UpdatePriceEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String symbol, double price});
+}
+
+/// @nodoc
+class __$$UpdatePriceEventImplCopyWithImpl<$Res>
+    extends _$StocksListEventCopyWithImpl<$Res, _$UpdatePriceEventImpl>
+    implements _$$UpdatePriceEventImplCopyWith<$Res> {
+  __$$UpdatePriceEventImplCopyWithImpl(_$UpdatePriceEventImpl _value,
+      $Res Function(_$UpdatePriceEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? symbol = null,
+    Object? price = null,
+  }) {
+    return _then(_$UpdatePriceEventImpl(
+      null == symbol
+          ? _value.symbol
+          : symbol // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdatePriceEventImpl implements _UpdatePriceEvent {
+  const _$UpdatePriceEventImpl(this.symbol, this.price);
+
+  @override
+  final String symbol;
+  @override
+  final double price;
+
+  @override
+  String toString() {
+    return 'StocksListEvent.updatePrice(symbol: $symbol, price: $price)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdatePriceEventImpl &&
+            (identical(other.symbol, symbol) || other.symbol == symbol) &&
+            (identical(other.price, price) || other.price == price));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, symbol, price);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdatePriceEventImplCopyWith<_$UpdatePriceEventImpl> get copyWith =>
+      __$$UpdatePriceEventImplCopyWithImpl<_$UpdatePriceEventImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(String symbol) subscribe,
+    required TResult Function(String symbol) unsubscribe,
+    required TResult Function(String symbol, double price) updatePrice,
+  }) {
+    return updatePrice(symbol, price);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function(String symbol)? subscribe,
+    TResult? Function(String symbol)? unsubscribe,
+    TResult? Function(String symbol, double price)? updatePrice,
+  }) {
+    return updatePrice?.call(symbol, price);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(String symbol)? subscribe,
+    TResult Function(String symbol)? unsubscribe,
+    TResult Function(String symbol, double price)? updatePrice,
+    required TResult orElse(),
+  }) {
+    if (updatePrice != null) {
+      return updatePrice(symbol, price);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitEvent value) init,
+    required TResult Function(_SubscribeEvent value) subscribe,
+    required TResult Function(_UnsubscribeEvent value) unsubscribe,
+    required TResult Function(_UpdatePriceEvent value) updatePrice,
+  }) {
+    return updatePrice(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitEvent value)? init,
+    TResult? Function(_SubscribeEvent value)? subscribe,
+    TResult? Function(_UnsubscribeEvent value)? unsubscribe,
+    TResult? Function(_UpdatePriceEvent value)? updatePrice,
+  }) {
+    return updatePrice?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitEvent value)? init,
+    TResult Function(_SubscribeEvent value)? subscribe,
+    TResult Function(_UnsubscribeEvent value)? unsubscribe,
+    TResult Function(_UpdatePriceEvent value)? updatePrice,
+    required TResult orElse(),
+  }) {
+    if (updatePrice != null) {
+      return updatePrice(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdatePriceEvent implements StocksListEvent {
+  const factory _UpdatePriceEvent(final String symbol, final double price) =
+      _$UpdatePriceEventImpl;
+
+  String get symbol;
+  double get price;
+  @JsonKey(ignore: true)
+  _$$UpdatePriceEventImplCopyWith<_$UpdatePriceEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
