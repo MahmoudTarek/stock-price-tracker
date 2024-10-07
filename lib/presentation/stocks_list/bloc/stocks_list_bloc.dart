@@ -29,6 +29,7 @@ class StocksListBloc extends Bloc<StocksListEvent, StocksListState> {
         subscribe: (e) => _subscribe(emit, e),
         unsubscribe: (e) => _unsubscribe(emit, e),
         updatePrice: (e) => _updatePrice(emit, e),
+        search: (e) => _search(emit, e),
       ),
     );
 
@@ -60,14 +61,30 @@ class StocksListBloc extends Bloc<StocksListEvent, StocksListState> {
   void _subscribe(
     Emitter<StocksListState> emit,
     _SubscribeEvent event,
-  ) =>
-      _subscribeToStockUseCase(event.symbol);
+  ) {
+    final contentState = state.mapOrNull(content: (value) => value);
+    if (contentState == null) return;
+
+    if (contentState.subscribedSymbols.contains(event.symbol)) return;
+    final list = List<String>.from(contentState.subscribedSymbols);
+    list.add(event.symbol);
+    _subscribeToStockUseCase(event.symbol);
+    emit(contentState.copyWith(subscribedSymbols: list));
+  }
 
   void _unsubscribe(
     Emitter<StocksListState> emit,
     _UnsubscribeEvent event,
-  ) =>
-      _unsubscribeFromStockUseCase(event.symbol);
+  ) {
+    final contentState = state.mapOrNull(content: (value) => value);
+    if (contentState == null) return;
+
+    if (!contentState.subscribedSymbols.contains(event.symbol)) return;
+    final list = List<String>.from(contentState.subscribedSymbols);
+    list.remove(event.symbol);
+    _unsubscribeFromStockUseCase(event.symbol);
+    emit(contentState.copyWith(subscribedSymbols: list));
+  }
 
   void _getPriceUpdates() {
     _getPriceUpdatesUseCase(
@@ -87,6 +104,29 @@ class StocksListBloc extends Bloc<StocksListEvent, StocksListState> {
       map[event.symbol] = event.price;
 
       emit(contentState.copyWith(stockPrices: map));
+    }
+  }
+
+  void _search(
+    Emitter<StocksListState> emit,
+    _SearchEvent event,
+  ) {
+    final contentState = state.mapOrNull(content: (value) => value);
+    if (contentState != null) {
+      if (event.query.isEmpty) {
+        emit(contentState.copyWith(filteredStocks: contentState.listOfStocks));
+        return;
+      }
+
+      final query = event.query.toLowerCase();
+
+      final filteredStocks = contentState.listOfStocks
+          .where((element) =>
+              element.symbol.toLowerCase().contains(query) ||
+              element.description.toLowerCase().contains(query))
+          .toList();
+
+      emit(contentState.copyWith(filteredStocks: filteredStocks));
     }
   }
 

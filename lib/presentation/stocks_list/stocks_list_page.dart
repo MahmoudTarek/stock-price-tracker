@@ -21,35 +21,60 @@ class StocksListPage extends StatelessWidget {
             return state.map(
               loading: (_) => const Center(child: CircularProgressIndicator()),
               error: (_) => const Text('Error'),
-              content: (state) {
-                return ListView.separated(
-                  padding: const EdgeInsets.all(16),
-                  itemCount: state.filteredStocks.length,
-                  separatorBuilder: (context, index) =>
-                      const SizedBox(height: 8),
-                  itemBuilder: (context, index) {
-                    final item = state.filteredStocks[index];
-                    return VisibilityDetector(
-                      key: Key('stock-list-item-$index'),
-                      onVisibilityChanged: (visibilityInfo) {
-                        if (visibilityInfo.visibleFraction > 0) {
-                          bloc.add(StocksListEvent.subscribe(item.symbol));
-                        } else {
-                          bloc.add(StocksListEvent.unsubscribe(item.symbol));
-                        }
-                      },
-                      child: StockListItem(
-                        model: item,
-                        price: state.getStockPrice(item.symbol),
-                      ),
-                    );
-                  },
-                );
-              },
+              content: (state) => _Content(bloc: bloc, state: state),
             );
           },
         ),
       ),
+    );
+  }
+}
+
+class _Content extends StatelessWidget {
+  const _Content({
+    required this.bloc,
+    required this.state,
+  });
+
+  final StocksListBloc bloc;
+  final StocksListContentState state;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
+          child: SearchBar(
+            hintText: 'Search stock',
+            onChanged: (value) => bloc.add(StocksListEvent.search(value)),
+          ),
+        ),
+        Expanded(
+          child: ListView.separated(
+            padding: const EdgeInsets.all(16),
+            itemCount: state.filteredStocks.length,
+            separatorBuilder: (context, index) => const SizedBox(height: 8),
+            itemBuilder: (context, index) {
+              final item = state.filteredStocks[index];
+              return VisibilityDetector(
+                key: Key('stock-list-item-$index'),
+                onVisibilityChanged: (visibilityInfo) {
+                  if (visibilityInfo.visibleFraction > 0) {
+                    bloc.add(StocksListEvent.subscribe(item.symbol));
+                  } else {
+                    bloc.add(StocksListEvent.unsubscribe(item.symbol));
+                  }
+                },
+                child: StockListItem(
+                  model: item,
+                  price: state.getStockPrice(item.symbol),
+                ),
+              );
+            },
+          ),
+        ),
+      ],
     );
   }
 }

@@ -7,17 +7,17 @@ class StocksListState with _$StocksListState {
   const factory StocksListState.content({
     @Default([]) List<StockModel> listOfStocks,
     @Default([]) List<StockModel> filteredStocks,
-    @Default([]) List<int> subscribedIndices,
+    @Default([]) List<String> subscribedSymbols,
     @Default({}) Map<String, double> stockPrices,
-  }) = _Content;
+  }) = StocksListContentState;
 
   const factory StocksListState.error() = _Error;
 }
 
 extension StocksListStateX on StocksListState {
   double? getStockPrice(String symbol) {
-    if (this is _Content) {
-      final content = this as _Content;
+    if (this is StocksListContentState) {
+      final content = this as StocksListContentState;
       if (content.stockPrices.containsKey(symbol)) {
         return content.stockPrices[symbol];
       }

@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:stocks_price_tracker/data/datasource/stocks_remote_data_source.dart';
 import 'package:stocks_price_tracker/data/dto/stock_dto.dart';
@@ -55,6 +56,7 @@ class StocksRepositoryImpl implements StocksRepository {
   }) {
     _wsManager.listen(
       onMessageReceived: (message) {
+        debugPrint('WS Message: $message');
         final dto = StockPriceUpdatesResponseDto.fromJson(json.decode(message));
         dto.data?.forEach((element) {
           onMessageReceived?.call(_stockPriceDtoMapper.map(element));
@@ -70,6 +72,7 @@ class StocksRepositoryImpl implements StocksRepository {
     final dto = StockSubscriptionDto(
         type: StockSubscriptionType.subscribe, symbol: symbol);
 
+    debugPrint('WS Subscribe: $symbol');
     _wsManager.sendMessage(
       json.encode(dto.toJson()),
     );
@@ -80,6 +83,7 @@ class StocksRepositoryImpl implements StocksRepository {
     final dto = StockSubscriptionDto(
         type: StockSubscriptionType.unsubscribe, symbol: symbol);
 
+    debugPrint('WS Unsubscribe: $symbol');
     _wsManager.sendMessage(
       json.encode(dto.toJson()),
     );

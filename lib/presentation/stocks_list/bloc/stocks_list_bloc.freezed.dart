@@ -22,6 +22,7 @@ mixin _$StocksListEvent {
     required TResult Function(String symbol) subscribe,
     required TResult Function(String symbol) unsubscribe,
     required TResult Function(String symbol, double price) updatePrice,
+    required TResult Function(String query) search,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$StocksListEvent {
     TResult? Function(String symbol)? subscribe,
     TResult? Function(String symbol)? unsubscribe,
     TResult? Function(String symbol, double price)? updatePrice,
+    TResult? Function(String query)? search,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$StocksListEvent {
     TResult Function(String symbol)? subscribe,
     TResult Function(String symbol)? unsubscribe,
     TResult Function(String symbol, double price)? updatePrice,
+    TResult Function(String query)? search,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$StocksListEvent {
     required TResult Function(_SubscribeEvent value) subscribe,
     required TResult Function(_UnsubscribeEvent value) unsubscribe,
     required TResult Function(_UpdatePriceEvent value) updatePrice,
+    required TResult Function(_SearchEvent value) search,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$StocksListEvent {
     TResult? Function(_SubscribeEvent value)? subscribe,
     TResult? Function(_UnsubscribeEvent value)? unsubscribe,
     TResult? Function(_UpdatePriceEvent value)? updatePrice,
+    TResult? Function(_SearchEvent value)? search,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$StocksListEvent {
     TResult Function(_SubscribeEvent value)? subscribe,
     TResult Function(_UnsubscribeEvent value)? unsubscribe,
     TResult Function(_UpdatePriceEvent value)? updatePrice,
+    TResult Function(_SearchEvent value)? search,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -128,6 +134,7 @@ class _$InitEventImpl implements _InitEvent {
     required TResult Function(String symbol) subscribe,
     required TResult Function(String symbol) unsubscribe,
     required TResult Function(String symbol, double price) updatePrice,
+    required TResult Function(String query) search,
   }) {
     return init();
   }
@@ -139,6 +146,7 @@ class _$InitEventImpl implements _InitEvent {
     TResult? Function(String symbol)? subscribe,
     TResult? Function(String symbol)? unsubscribe,
     TResult? Function(String symbol, double price)? updatePrice,
+    TResult? Function(String query)? search,
   }) {
     return init?.call();
   }
@@ -150,6 +158,7 @@ class _$InitEventImpl implements _InitEvent {
     TResult Function(String symbol)? subscribe,
     TResult Function(String symbol)? unsubscribe,
     TResult Function(String symbol, double price)? updatePrice,
+    TResult Function(String query)? search,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -165,6 +174,7 @@ class _$InitEventImpl implements _InitEvent {
     required TResult Function(_SubscribeEvent value) subscribe,
     required TResult Function(_UnsubscribeEvent value) unsubscribe,
     required TResult Function(_UpdatePriceEvent value) updatePrice,
+    required TResult Function(_SearchEvent value) search,
   }) {
     return init(this);
   }
@@ -176,6 +186,7 @@ class _$InitEventImpl implements _InitEvent {
     TResult? Function(_SubscribeEvent value)? subscribe,
     TResult? Function(_UnsubscribeEvent value)? unsubscribe,
     TResult? Function(_UpdatePriceEvent value)? updatePrice,
+    TResult? Function(_SearchEvent value)? search,
   }) {
     return init?.call(this);
   }
@@ -187,6 +198,7 @@ class _$InitEventImpl implements _InitEvent {
     TResult Function(_SubscribeEvent value)? subscribe,
     TResult Function(_UnsubscribeEvent value)? unsubscribe,
     TResult Function(_UpdatePriceEvent value)? updatePrice,
+    TResult Function(_SearchEvent value)? search,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -269,6 +281,7 @@ class _$SubscribeEventImpl implements _SubscribeEvent {
     required TResult Function(String symbol) subscribe,
     required TResult Function(String symbol) unsubscribe,
     required TResult Function(String symbol, double price) updatePrice,
+    required TResult Function(String query) search,
   }) {
     return subscribe(symbol);
   }
@@ -280,6 +293,7 @@ class _$SubscribeEventImpl implements _SubscribeEvent {
     TResult? Function(String symbol)? subscribe,
     TResult? Function(String symbol)? unsubscribe,
     TResult? Function(String symbol, double price)? updatePrice,
+    TResult? Function(String query)? search,
   }) {
     return subscribe?.call(symbol);
   }
@@ -291,6 +305,7 @@ class _$SubscribeEventImpl implements _SubscribeEvent {
     TResult Function(String symbol)? subscribe,
     TResult Function(String symbol)? unsubscribe,
     TResult Function(String symbol, double price)? updatePrice,
+    TResult Function(String query)? search,
     required TResult orElse(),
   }) {
     if (subscribe != null) {
@@ -306,6 +321,7 @@ class _$SubscribeEventImpl implements _SubscribeEvent {
     required TResult Function(_SubscribeEvent value) subscribe,
     required TResult Function(_UnsubscribeEvent value) unsubscribe,
     required TResult Function(_UpdatePriceEvent value) updatePrice,
+    required TResult Function(_SearchEvent value) search,
   }) {
     return subscribe(this);
   }
@@ -317,6 +333,7 @@ class _$SubscribeEventImpl implements _SubscribeEvent {
     TResult? Function(_SubscribeEvent value)? subscribe,
     TResult? Function(_UnsubscribeEvent value)? unsubscribe,
     TResult? Function(_UpdatePriceEvent value)? updatePrice,
+    TResult? Function(_SearchEvent value)? search,
   }) {
     return subscribe?.call(this);
   }
@@ -328,6 +345,7 @@ class _$SubscribeEventImpl implements _SubscribeEvent {
     TResult Function(_SubscribeEvent value)? subscribe,
     TResult Function(_UnsubscribeEvent value)? unsubscribe,
     TResult Function(_UpdatePriceEvent value)? updatePrice,
+    TResult Function(_SearchEvent value)? search,
     required TResult orElse(),
   }) {
     if (subscribe != null) {
@@ -415,6 +433,7 @@ class _$UnsubscribeEventImpl implements _UnsubscribeEvent {
     required TResult Function(String symbol) subscribe,
     required TResult Function(String symbol) unsubscribe,
     required TResult Function(String symbol, double price) updatePrice,
+    required TResult Function(String query) search,
   }) {
     return unsubscribe(symbol);
   }
@@ -426,6 +445,7 @@ class _$UnsubscribeEventImpl implements _UnsubscribeEvent {
     TResult? Function(String symbol)? subscribe,
     TResult? Function(String symbol)? unsubscribe,
     TResult? Function(String symbol, double price)? updatePrice,
+    TResult? Function(String query)? search,
   }) {
     return unsubscribe?.call(symbol);
   }
@@ -437,6 +457,7 @@ class _$UnsubscribeEventImpl implements _UnsubscribeEvent {
     TResult Function(String symbol)? subscribe,
     TResult Function(String symbol)? unsubscribe,
     TResult Function(String symbol, double price)? updatePrice,
+    TResult Function(String query)? search,
     required TResult orElse(),
   }) {
     if (unsubscribe != null) {
@@ -452,6 +473,7 @@ class _$UnsubscribeEventImpl implements _UnsubscribeEvent {
     required TResult Function(_SubscribeEvent value) subscribe,
     required TResult Function(_UnsubscribeEvent value) unsubscribe,
     required TResult Function(_UpdatePriceEvent value) updatePrice,
+    required TResult Function(_SearchEvent value) search,
   }) {
     return unsubscribe(this);
   }
@@ -463,6 +485,7 @@ class _$UnsubscribeEventImpl implements _UnsubscribeEvent {
     TResult? Function(_SubscribeEvent value)? subscribe,
     TResult? Function(_UnsubscribeEvent value)? unsubscribe,
     TResult? Function(_UpdatePriceEvent value)? updatePrice,
+    TResult? Function(_SearchEvent value)? search,
   }) {
     return unsubscribe?.call(this);
   }
@@ -474,6 +497,7 @@ class _$UnsubscribeEventImpl implements _UnsubscribeEvent {
     TResult Function(_SubscribeEvent value)? subscribe,
     TResult Function(_UnsubscribeEvent value)? unsubscribe,
     TResult Function(_UpdatePriceEvent value)? updatePrice,
+    TResult Function(_SearchEvent value)? search,
     required TResult orElse(),
   }) {
     if (unsubscribe != null) {
@@ -569,6 +593,7 @@ class _$UpdatePriceEventImpl implements _UpdatePriceEvent {
     required TResult Function(String symbol) subscribe,
     required TResult Function(String symbol) unsubscribe,
     required TResult Function(String symbol, double price) updatePrice,
+    required TResult Function(String query) search,
   }) {
     return updatePrice(symbol, price);
   }
@@ -580,6 +605,7 @@ class _$UpdatePriceEventImpl implements _UpdatePriceEvent {
     TResult? Function(String symbol)? subscribe,
     TResult? Function(String symbol)? unsubscribe,
     TResult? Function(String symbol, double price)? updatePrice,
+    TResult? Function(String query)? search,
   }) {
     return updatePrice?.call(symbol, price);
   }
@@ -591,6 +617,7 @@ class _$UpdatePriceEventImpl implements _UpdatePriceEvent {
     TResult Function(String symbol)? subscribe,
     TResult Function(String symbol)? unsubscribe,
     TResult Function(String symbol, double price)? updatePrice,
+    TResult Function(String query)? search,
     required TResult orElse(),
   }) {
     if (updatePrice != null) {
@@ -606,6 +633,7 @@ class _$UpdatePriceEventImpl implements _UpdatePriceEvent {
     required TResult Function(_SubscribeEvent value) subscribe,
     required TResult Function(_UnsubscribeEvent value) unsubscribe,
     required TResult Function(_UpdatePriceEvent value) updatePrice,
+    required TResult Function(_SearchEvent value) search,
   }) {
     return updatePrice(this);
   }
@@ -617,6 +645,7 @@ class _$UpdatePriceEventImpl implements _UpdatePriceEvent {
     TResult? Function(_SubscribeEvent value)? subscribe,
     TResult? Function(_UnsubscribeEvent value)? unsubscribe,
     TResult? Function(_UpdatePriceEvent value)? updatePrice,
+    TResult? Function(_SearchEvent value)? search,
   }) {
     return updatePrice?.call(this);
   }
@@ -628,6 +657,7 @@ class _$UpdatePriceEventImpl implements _UpdatePriceEvent {
     TResult Function(_SubscribeEvent value)? subscribe,
     TResult Function(_UnsubscribeEvent value)? unsubscribe,
     TResult Function(_UpdatePriceEvent value)? updatePrice,
+    TResult Function(_SearchEvent value)? search,
     required TResult orElse(),
   }) {
     if (updatePrice != null) {
@@ -649,6 +679,157 @@ abstract class _UpdatePriceEvent implements StocksListEvent {
 }
 
 /// @nodoc
+abstract class _$$SearchEventImplCopyWith<$Res> {
+  factory _$$SearchEventImplCopyWith(
+          _$SearchEventImpl value, $Res Function(_$SearchEventImpl) then) =
+      __$$SearchEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String query});
+}
+
+/// @nodoc
+class __$$SearchEventImplCopyWithImpl<$Res>
+    extends _$StocksListEventCopyWithImpl<$Res, _$SearchEventImpl>
+    implements _$$SearchEventImplCopyWith<$Res> {
+  __$$SearchEventImplCopyWithImpl(
+      _$SearchEventImpl _value, $Res Function(_$SearchEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? query = null,
+  }) {
+    return _then(_$SearchEventImpl(
+      null == query
+          ? _value.query
+          : query // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SearchEventImpl implements _SearchEvent {
+  const _$SearchEventImpl(this.query);
+
+  @override
+  final String query;
+
+  @override
+  String toString() {
+    return 'StocksListEvent.search(query: $query)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SearchEventImpl &&
+            (identical(other.query, query) || other.query == query));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, query);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SearchEventImplCopyWith<_$SearchEventImpl> get copyWith =>
+      __$$SearchEventImplCopyWithImpl<_$SearchEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(String symbol) subscribe,
+    required TResult Function(String symbol) unsubscribe,
+    required TResult Function(String symbol, double price) updatePrice,
+    required TResult Function(String query) search,
+  }) {
+    return search(query);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function(String symbol)? subscribe,
+    TResult? Function(String symbol)? unsubscribe,
+    TResult? Function(String symbol, double price)? updatePrice,
+    TResult? Function(String query)? search,
+  }) {
+    return search?.call(query);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(String symbol)? subscribe,
+    TResult Function(String symbol)? unsubscribe,
+    TResult Function(String symbol, double price)? updatePrice,
+    TResult Function(String query)? search,
+    required TResult orElse(),
+  }) {
+    if (search != null) {
+      return search(query);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitEvent value) init,
+    required TResult Function(_SubscribeEvent value) subscribe,
+    required TResult Function(_UnsubscribeEvent value) unsubscribe,
+    required TResult Function(_UpdatePriceEvent value) updatePrice,
+    required TResult Function(_SearchEvent value) search,
+  }) {
+    return search(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitEvent value)? init,
+    TResult? Function(_SubscribeEvent value)? subscribe,
+    TResult? Function(_UnsubscribeEvent value)? unsubscribe,
+    TResult? Function(_UpdatePriceEvent value)? updatePrice,
+    TResult? Function(_SearchEvent value)? search,
+  }) {
+    return search?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitEvent value)? init,
+    TResult Function(_SubscribeEvent value)? subscribe,
+    TResult Function(_UnsubscribeEvent value)? unsubscribe,
+    TResult Function(_UpdatePriceEvent value)? updatePrice,
+    TResult Function(_SearchEvent value)? search,
+    required TResult orElse(),
+  }) {
+    if (search != null) {
+      return search(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SearchEvent implements StocksListEvent {
+  const factory _SearchEvent(final String query) = _$SearchEventImpl;
+
+  String get query;
+  @JsonKey(ignore: true)
+  _$$SearchEventImplCopyWith<_$SearchEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$StocksListState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -656,7 +837,7 @@ mixin _$StocksListState {
     required TResult Function(
             List<StockModel> listOfStocks,
             List<StockModel> filteredStocks,
-            List<int> subscribedIndices,
+            List<String> subscribedSymbols,
             Map<String, double> stockPrices)
         content,
     required TResult Function() error,
@@ -668,7 +849,7 @@ mixin _$StocksListState {
     TResult? Function(
             List<StockModel> listOfStocks,
             List<StockModel> filteredStocks,
-            List<int> subscribedIndices,
+            List<String> subscribedSymbols,
             Map<String, double> stockPrices)?
         content,
     TResult? Function()? error,
@@ -680,7 +861,7 @@ mixin _$StocksListState {
     TResult Function(
             List<StockModel> listOfStocks,
             List<StockModel> filteredStocks,
-            List<int> subscribedIndices,
+            List<String> subscribedSymbols,
             Map<String, double> stockPrices)?
         content,
     TResult Function()? error,
@@ -690,21 +871,21 @@ mixin _$StocksListState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Content value) content,
+    required TResult Function(StocksListContentState value) content,
     required TResult Function(_Error value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Content value)? content,
+    TResult? Function(StocksListContentState value)? content,
     TResult? Function(_Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
+    TResult Function(StocksListContentState value)? content,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) =>
@@ -771,7 +952,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(
             List<StockModel> listOfStocks,
             List<StockModel> filteredStocks,
-            List<int> subscribedIndices,
+            List<String> subscribedSymbols,
             Map<String, double> stockPrices)
         content,
     required TResult Function() error,
@@ -786,7 +967,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(
             List<StockModel> listOfStocks,
             List<StockModel> filteredStocks,
-            List<int> subscribedIndices,
+            List<String> subscribedSymbols,
             Map<String, double> stockPrices)?
         content,
     TResult? Function()? error,
@@ -801,7 +982,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(
             List<StockModel> listOfStocks,
             List<StockModel> filteredStocks,
-            List<int> subscribedIndices,
+            List<String> subscribedSymbols,
             Map<String, double> stockPrices)?
         content,
     TResult Function()? error,
@@ -817,7 +998,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Content value) content,
+    required TResult Function(StocksListContentState value) content,
     required TResult Function(_Error value) error,
   }) {
     return loading(this);
@@ -827,7 +1008,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Content value)? content,
+    TResult? Function(StocksListContentState value)? content,
     TResult? Function(_Error value)? error,
   }) {
     return loading?.call(this);
@@ -837,7 +1018,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
+    TResult Function(StocksListContentState value)? content,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -853,24 +1034,26 @@ abstract class _Loading implements StocksListState {
 }
 
 /// @nodoc
-abstract class _$$ContentImplCopyWith<$Res> {
-  factory _$$ContentImplCopyWith(
-          _$ContentImpl value, $Res Function(_$ContentImpl) then) =
-      __$$ContentImplCopyWithImpl<$Res>;
+abstract class _$$StocksListContentStateImplCopyWith<$Res> {
+  factory _$$StocksListContentStateImplCopyWith(
+          _$StocksListContentStateImpl value,
+          $Res Function(_$StocksListContentStateImpl) then) =
+      __$$StocksListContentStateImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {List<StockModel> listOfStocks,
       List<StockModel> filteredStocks,
-      List<int> subscribedIndices,
+      List<String> subscribedSymbols,
       Map<String, double> stockPrices});
 }
 
 /// @nodoc
-class __$$ContentImplCopyWithImpl<$Res>
-    extends _$StocksListStateCopyWithImpl<$Res, _$ContentImpl>
-    implements _$$ContentImplCopyWith<$Res> {
-  __$$ContentImplCopyWithImpl(
-      _$ContentImpl _value, $Res Function(_$ContentImpl) _then)
+class __$$StocksListContentStateImplCopyWithImpl<$Res>
+    extends _$StocksListStateCopyWithImpl<$Res, _$StocksListContentStateImpl>
+    implements _$$StocksListContentStateImplCopyWith<$Res> {
+  __$$StocksListContentStateImplCopyWithImpl(
+      _$StocksListContentStateImpl _value,
+      $Res Function(_$StocksListContentStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -878,10 +1061,10 @@ class __$$ContentImplCopyWithImpl<$Res>
   $Res call({
     Object? listOfStocks = null,
     Object? filteredStocks = null,
-    Object? subscribedIndices = null,
+    Object? subscribedSymbols = null,
     Object? stockPrices = null,
   }) {
-    return _then(_$ContentImpl(
+    return _then(_$StocksListContentStateImpl(
       listOfStocks: null == listOfStocks
           ? _value._listOfStocks
           : listOfStocks // ignore: cast_nullable_to_non_nullable
@@ -890,10 +1073,10 @@ class __$$ContentImplCopyWithImpl<$Res>
           ? _value._filteredStocks
           : filteredStocks // ignore: cast_nullable_to_non_nullable
               as List<StockModel>,
-      subscribedIndices: null == subscribedIndices
-          ? _value._subscribedIndices
-          : subscribedIndices // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+      subscribedSymbols: null == subscribedSymbols
+          ? _value._subscribedSymbols
+          : subscribedSymbols // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       stockPrices: null == stockPrices
           ? _value._stockPrices
           : stockPrices // ignore: cast_nullable_to_non_nullable
@@ -904,15 +1087,15 @@ class __$$ContentImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ContentImpl implements _Content {
-  const _$ContentImpl(
+class _$StocksListContentStateImpl implements StocksListContentState {
+  const _$StocksListContentStateImpl(
       {final List<StockModel> listOfStocks = const [],
       final List<StockModel> filteredStocks = const [],
-      final List<int> subscribedIndices = const [],
+      final List<String> subscribedSymbols = const [],
       final Map<String, double> stockPrices = const {}})
       : _listOfStocks = listOfStocks,
         _filteredStocks = filteredStocks,
-        _subscribedIndices = subscribedIndices,
+        _subscribedSymbols = subscribedSymbols,
         _stockPrices = stockPrices;
 
   final List<StockModel> _listOfStocks;
@@ -933,14 +1116,14 @@ class _$ContentImpl implements _Content {
     return EqualUnmodifiableListView(_filteredStocks);
   }
 
-  final List<int> _subscribedIndices;
+  final List<String> _subscribedSymbols;
   @override
   @JsonKey()
-  List<int> get subscribedIndices {
-    if (_subscribedIndices is EqualUnmodifiableListView)
-      return _subscribedIndices;
+  List<String> get subscribedSymbols {
+    if (_subscribedSymbols is EqualUnmodifiableListView)
+      return _subscribedSymbols;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_subscribedIndices);
+    return EqualUnmodifiableListView(_subscribedSymbols);
   }
 
   final Map<String, double> _stockPrices;
@@ -954,20 +1137,20 @@ class _$ContentImpl implements _Content {
 
   @override
   String toString() {
-    return 'StocksListState.content(listOfStocks: $listOfStocks, filteredStocks: $filteredStocks, subscribedIndices: $subscribedIndices, stockPrices: $stockPrices)';
+    return 'StocksListState.content(listOfStocks: $listOfStocks, filteredStocks: $filteredStocks, subscribedSymbols: $subscribedSymbols, stockPrices: $stockPrices)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ContentImpl &&
+            other is _$StocksListContentStateImpl &&
             const DeepCollectionEquality()
                 .equals(other._listOfStocks, _listOfStocks) &&
             const DeepCollectionEquality()
                 .equals(other._filteredStocks, _filteredStocks) &&
             const DeepCollectionEquality()
-                .equals(other._subscribedIndices, _subscribedIndices) &&
+                .equals(other._subscribedSymbols, _subscribedSymbols) &&
             const DeepCollectionEquality()
                 .equals(other._stockPrices, _stockPrices));
   }
@@ -977,14 +1160,15 @@ class _$ContentImpl implements _Content {
       runtimeType,
       const DeepCollectionEquality().hash(_listOfStocks),
       const DeepCollectionEquality().hash(_filteredStocks),
-      const DeepCollectionEquality().hash(_subscribedIndices),
+      const DeepCollectionEquality().hash(_subscribedSymbols),
       const DeepCollectionEquality().hash(_stockPrices));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ContentImplCopyWith<_$ContentImpl> get copyWith =>
-      __$$ContentImplCopyWithImpl<_$ContentImpl>(this, _$identity);
+  _$$StocksListContentStateImplCopyWith<_$StocksListContentStateImpl>
+      get copyWith => __$$StocksListContentStateImplCopyWithImpl<
+          _$StocksListContentStateImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -993,13 +1177,13 @@ class _$ContentImpl implements _Content {
     required TResult Function(
             List<StockModel> listOfStocks,
             List<StockModel> filteredStocks,
-            List<int> subscribedIndices,
+            List<String> subscribedSymbols,
             Map<String, double> stockPrices)
         content,
     required TResult Function() error,
   }) {
     return content(
-        listOfStocks, filteredStocks, subscribedIndices, stockPrices);
+        listOfStocks, filteredStocks, subscribedSymbols, stockPrices);
   }
 
   @override
@@ -1009,13 +1193,13 @@ class _$ContentImpl implements _Content {
     TResult? Function(
             List<StockModel> listOfStocks,
             List<StockModel> filteredStocks,
-            List<int> subscribedIndices,
+            List<String> subscribedSymbols,
             Map<String, double> stockPrices)?
         content,
     TResult? Function()? error,
   }) {
     return content?.call(
-        listOfStocks, filteredStocks, subscribedIndices, stockPrices);
+        listOfStocks, filteredStocks, subscribedSymbols, stockPrices);
   }
 
   @override
@@ -1025,7 +1209,7 @@ class _$ContentImpl implements _Content {
     TResult Function(
             List<StockModel> listOfStocks,
             List<StockModel> filteredStocks,
-            List<int> subscribedIndices,
+            List<String> subscribedSymbols,
             Map<String, double> stockPrices)?
         content,
     TResult Function()? error,
@@ -1033,7 +1217,7 @@ class _$ContentImpl implements _Content {
   }) {
     if (content != null) {
       return content(
-          listOfStocks, filteredStocks, subscribedIndices, stockPrices);
+          listOfStocks, filteredStocks, subscribedSymbols, stockPrices);
     }
     return orElse();
   }
@@ -1042,7 +1226,7 @@ class _$ContentImpl implements _Content {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Content value) content,
+    required TResult Function(StocksListContentState value) content,
     required TResult Function(_Error value) error,
   }) {
     return content(this);
@@ -1052,7 +1236,7 @@ class _$ContentImpl implements _Content {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Content value)? content,
+    TResult? Function(StocksListContentState value)? content,
     TResult? Function(_Error value)? error,
   }) {
     return content?.call(this);
@@ -1062,7 +1246,7 @@ class _$ContentImpl implements _Content {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
+    TResult Function(StocksListContentState value)? content,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -1073,20 +1257,20 @@ class _$ContentImpl implements _Content {
   }
 }
 
-abstract class _Content implements StocksListState {
-  const factory _Content(
+abstract class StocksListContentState implements StocksListState {
+  const factory StocksListContentState(
       {final List<StockModel> listOfStocks,
       final List<StockModel> filteredStocks,
-      final List<int> subscribedIndices,
-      final Map<String, double> stockPrices}) = _$ContentImpl;
+      final List<String> subscribedSymbols,
+      final Map<String, double> stockPrices}) = _$StocksListContentStateImpl;
 
   List<StockModel> get listOfStocks;
   List<StockModel> get filteredStocks;
-  List<int> get subscribedIndices;
+  List<String> get subscribedSymbols;
   Map<String, double> get stockPrices;
   @JsonKey(ignore: true)
-  _$$ContentImplCopyWith<_$ContentImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$StocksListContentStateImplCopyWith<_$StocksListContentStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1131,7 +1315,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function(
             List<StockModel> listOfStocks,
             List<StockModel> filteredStocks,
-            List<int> subscribedIndices,
+            List<String> subscribedSymbols,
             Map<String, double> stockPrices)
         content,
     required TResult Function() error,
@@ -1146,7 +1330,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function(
             List<StockModel> listOfStocks,
             List<StockModel> filteredStocks,
-            List<int> subscribedIndices,
+            List<String> subscribedSymbols,
             Map<String, double> stockPrices)?
         content,
     TResult? Function()? error,
@@ -1161,7 +1345,7 @@ class _$ErrorImpl implements _Error {
     TResult Function(
             List<StockModel> listOfStocks,
             List<StockModel> filteredStocks,
-            List<int> subscribedIndices,
+            List<String> subscribedSymbols,
             Map<String, double> stockPrices)?
         content,
     TResult Function()? error,
@@ -1177,7 +1361,7 @@ class _$ErrorImpl implements _Error {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Content value) content,
+    required TResult Function(StocksListContentState value) content,
     required TResult Function(_Error value) error,
   }) {
     return error(this);
@@ -1187,7 +1371,7 @@ class _$ErrorImpl implements _Error {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Content value)? content,
+    TResult? Function(StocksListContentState value)? content,
     TResult? Function(_Error value)? error,
   }) {
     return error?.call(this);
@@ -1197,7 +1381,7 @@ class _$ErrorImpl implements _Error {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
+    TResult Function(StocksListContentState value)? content,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
