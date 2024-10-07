@@ -56,8 +56,6 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i879.StockPriceDtoMapper>(),
           gh<_i323.WSManager>(),
         ));
-    gh.factory<_i151.GetStocksUseCase>(
-        () => _i151.GetStocksUseCase(gh<_i324.StocksRepository>()));
     gh.factory<_i727.UnsubscribeFromStockUseCase>(
         () => _i727.UnsubscribeFromStockUseCase(gh<_i324.StocksRepository>()));
     gh.factory<_i819.SubscribeToStockUseCase>(
@@ -68,6 +66,8 @@ extension GetItInjectableX on _i174.GetIt {
         _i408.CloseLiveUpdatesConnectionUseCase(gh<_i324.StocksRepository>()));
     gh.factory<_i642.ConnectToLiveUpdatesUseCase>(
         () => _i642.ConnectToLiveUpdatesUseCase(gh<_i324.StocksRepository>()));
+    gh.factory<_i151.GetStocksUseCase>(
+        () => _i151.GetStocksUseCase(gh<_i324.StocksRepository>()));
     gh.factory<_i729.StocksListBloc>(() => _i729.StocksListBloc(
           gh<_i151.GetStocksUseCase>(),
           gh<_i642.ConnectToLiveUpdatesUseCase>(),

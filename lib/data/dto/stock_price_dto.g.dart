@@ -8,6 +8,6 @@ part of 'stock_price_dto.dart';
 
 StockPriceDto _$StockPriceDtoFromJson(Map<String, dynamic> json) =>
     StockPriceDto(
-      json['s'] as String?,
-      (json['p'] as num?)?.toDouble(),
+      symbol: json['s'] as String?,
+      price: (json['p'] as num?)?.toDouble(),
     );

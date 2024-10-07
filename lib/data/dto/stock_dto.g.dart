@@ -7,7 +7,7 @@ part of 'stock_dto.dart';
 // **************************************************************************
 
 StockDto _$StockDtoFromJson(Map<String, dynamic> json) => StockDto(
-      json['displaySymbol'] as String?,
-      json['symbol'] as String?,
-      json['description'] as String?,
+      displaySymbol: json['displaySymbol'] as String?,
+      symbol: json['symbol'] as String?,
+      description: json['description'] as String?,
     );

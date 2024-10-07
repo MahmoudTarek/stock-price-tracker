@@ -4,10 +4,10 @@ part 'stock_price_dto.g.dart';
 
 @JsonSerializable(createToJson: false)
 class StockPriceDto {
-  StockPriceDto(
+  StockPriceDto({
     this.symbol,
     this.price,
-  );
+  });
 
   factory StockPriceDto.fromJson(Map<String, dynamic> json) =>
       _$StockPriceDtoFromJson(json);
