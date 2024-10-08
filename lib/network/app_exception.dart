@@ -21,4 +21,11 @@ class AppException implements Exception {
     message = 'Sorry, something went wrong! Try again?';
     errorCode = -999;
   }
+
+  AppException.network() {
+    type = AppExceptionType.network;
+    title = "No Internet Connection!";
+    message = "Please check your internet connection and try again!";
+    errorCode = -999;
+  }
 }

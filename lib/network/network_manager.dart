@@ -1,3 +1,4 @@
+import 'package:connectivity/connectivity.dart';
 import 'package:dio/dio.dart';
 import 'package:stocks_price_tracker/network/app_exception.dart';
 import 'package:stocks_price_tracker/network/http_service.dart';
@@ -17,6 +18,10 @@ class NetworkManager {
     required String url,
     Map<String, dynamic>? queryParams,
   }) async {
+    final isConnected = await _checkInternetConnection();
+    if (!isConnected) {
+      throw AppException.network();
+    }
     try {
       return await _httpService.GET(url, queryParams);
     } on DioException catch (dioException) {
@@ -29,6 +34,10 @@ class NetworkManager {
     dynamic data,
     Map<String, dynamic>? queryParams,
   }) async {
+    final isConnected = await _checkInternetConnection();
+    if (!isConnected) {
+      throw AppException.network();
+    }
     try {
       return await _httpService.POST(url, data, queryParams);
     } on DioException catch (dioException) {
@@ -51,5 +60,10 @@ class NetworkManager {
       message: "Something went wrong, please try again",
       errorCode: dioException.response?.statusCode ?? -999,
     );
+  }
+
+  Future<bool> _checkInternetConnection() async {
+    var connectivityResult = await (Connectivity().checkConnectivity());
+    return connectivityResult != ConnectivityResult.none;
   }
 }

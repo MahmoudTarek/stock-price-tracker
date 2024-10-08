@@ -11,7 +11,7 @@ class StocksListState with _$StocksListState {
     @Default({}) Map<String, double> stockPrices,
   }) = StocksListContentState;
 
-  const factory StocksListState.error() = _Error;
+  const factory StocksListState.error(String error) = _Error;
 }
 
 extension StocksListStateX on StocksListState {

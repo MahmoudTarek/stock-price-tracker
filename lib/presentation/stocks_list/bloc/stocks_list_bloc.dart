@@ -8,6 +8,7 @@ import 'package:stocks_price_tracker/domain/use_case/get_price_updates_use_case.
 import 'package:stocks_price_tracker/domain/use_case/get_stocks_use_case.dart';
 import 'package:stocks_price_tracker/domain/use_case/subscribe_to_stock_use_case.dart';
 import 'package:stocks_price_tracker/domain/use_case/unsubscribe_from_stock_use_case.dart';
+import 'package:stocks_price_tracker/network/app_exception.dart';
 
 part 'stocks_list_bloc.freezed.dart';
 part 'stocks_list_event.dart';
@@ -47,15 +48,18 @@ class StocksListBloc extends Bloc<StocksListEvent, StocksListState> {
     Emitter<StocksListState> emit,
     _InitEvent event,
   ) async {
-    final stocks = await _getStocksUseCase();
+    try {
+      final stocks = await _getStocksUseCase();
 
-    emit(
-      StocksListState.content(filteredStocks: stocks, listOfStocks: stocks),
-    );
+      emit(
+        StocksListState.content(filteredStocks: stocks, listOfStocks: stocks),
+      );
+      _connectToLiveUpdatesUseCase();
 
-    _connectToLiveUpdatesUseCase();
-
-    _getPriceUpdates();
+      _getPriceUpdates();
+    } on AppException catch (exception) {
+      emit(StocksListState.error(exception.message));
+    }
   }
 
   void _subscribe(

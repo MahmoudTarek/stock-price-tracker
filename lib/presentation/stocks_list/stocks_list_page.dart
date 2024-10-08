@@ -20,13 +20,26 @@ class StocksListPage extends StatelessWidget {
           builder: (context, state) {
             return state.map(
               loading: (_) => const Center(child: CircularProgressIndicator()),
-              error: (_) => const Text('Error'),
+              error: (state) => _Error(description: state.error),
               content: (state) => _Content(bloc: bloc, state: state),
             );
           },
         ),
       ),
     );
+  }
+}
+
+class _Error extends StatelessWidget {
+  const _Error({
+    required this.description,
+  });
+
+  final String description;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(child: Text(description));
   }
 }
 

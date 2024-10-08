@@ -840,7 +840,7 @@ mixin _$StocksListState {
             List<String> subscribedSymbols,
             Map<String, double> stockPrices)
         content,
-    required TResult Function() error,
+    required TResult Function(String error) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -852,7 +852,7 @@ mixin _$StocksListState {
             List<String> subscribedSymbols,
             Map<String, double> stockPrices)?
         content,
-    TResult? Function()? error,
+    TResult? Function(String error)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -864,7 +864,7 @@ mixin _$StocksListState {
             List<String> subscribedSymbols,
             Map<String, double> stockPrices)?
         content,
-    TResult Function()? error,
+    TResult Function(String error)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -955,7 +955,7 @@ class _$LoadingImpl implements _Loading {
             List<String> subscribedSymbols,
             Map<String, double> stockPrices)
         content,
-    required TResult Function() error,
+    required TResult Function(String error) error,
   }) {
     return loading();
   }
@@ -970,7 +970,7 @@ class _$LoadingImpl implements _Loading {
             List<String> subscribedSymbols,
             Map<String, double> stockPrices)?
         content,
-    TResult? Function()? error,
+    TResult? Function(String error)? error,
   }) {
     return loading?.call();
   }
@@ -985,7 +985,7 @@ class _$LoadingImpl implements _Loading {
             List<String> subscribedSymbols,
             Map<String, double> stockPrices)?
         content,
-    TResult Function()? error,
+    TResult Function(String error)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1180,7 +1180,7 @@ class _$StocksListContentStateImpl implements StocksListContentState {
             List<String> subscribedSymbols,
             Map<String, double> stockPrices)
         content,
-    required TResult Function() error,
+    required TResult Function(String error) error,
   }) {
     return content(
         listOfStocks, filteredStocks, subscribedSymbols, stockPrices);
@@ -1196,7 +1196,7 @@ class _$StocksListContentStateImpl implements StocksListContentState {
             List<String> subscribedSymbols,
             Map<String, double> stockPrices)?
         content,
-    TResult? Function()? error,
+    TResult? Function(String error)? error,
   }) {
     return content?.call(
         listOfStocks, filteredStocks, subscribedSymbols, stockPrices);
@@ -1212,7 +1212,7 @@ class _$StocksListContentStateImpl implements StocksListContentState {
             List<String> subscribedSymbols,
             Map<String, double> stockPrices)?
         content,
-    TResult Function()? error,
+    TResult Function(String error)? error,
     required TResult orElse(),
   }) {
     if (content != null) {
@@ -1278,6 +1278,8 @@ abstract class _$$ErrorImplCopyWith<$Res> {
   factory _$$ErrorImplCopyWith(
           _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
       __$$ErrorImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String error});
 }
 
 /// @nodoc
@@ -1287,26 +1289,50 @@ class __$$ErrorImplCopyWithImpl<$Res>
   __$$ErrorImplCopyWithImpl(
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$ErrorImpl(
+      null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$ErrorImpl implements _Error {
-  const _$ErrorImpl();
+  const _$ErrorImpl(this.error);
+
+  @override
+  final String error;
 
   @override
   String toString() {
-    return 'StocksListState.error()';
+    return 'StocksListState.error(error: $error)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ErrorImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$ErrorImpl &&
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
+      __$$ErrorImplCopyWithImpl<_$ErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1318,9 +1344,9 @@ class _$ErrorImpl implements _Error {
             List<String> subscribedSymbols,
             Map<String, double> stockPrices)
         content,
-    required TResult Function() error,
+    required TResult Function(String error) error,
   }) {
-    return error();
+    return error(this.error);
   }
 
   @override
@@ -1333,9 +1359,9 @@ class _$ErrorImpl implements _Error {
             List<String> subscribedSymbols,
             Map<String, double> stockPrices)?
         content,
-    TResult? Function()? error,
+    TResult? Function(String error)? error,
   }) {
-    return error?.call();
+    return error?.call(this.error);
   }
 
   @override
@@ -1348,11 +1374,11 @@ class _$ErrorImpl implements _Error {
             List<String> subscribedSymbols,
             Map<String, double> stockPrices)?
         content,
-    TResult Function()? error,
+    TResult Function(String error)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error();
+      return error(this.error);
     }
     return orElse();
   }
@@ -1393,5 +1419,10 @@ class _$ErrorImpl implements _Error {
 }
 
 abstract class _Error implements StocksListState {
-  const factory _Error() = _$ErrorImpl;
+  const factory _Error(final String error) = _$ErrorImpl;
+
+  String get error;
+  @JsonKey(ignore: true)
+  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

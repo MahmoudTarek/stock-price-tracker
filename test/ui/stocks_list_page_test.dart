@@ -45,11 +45,12 @@ void main() {
 
   testWidgets('shows error message when state is error',
       (WidgetTester tester) async {
-    when(mockBloc.state).thenReturn(const StocksListState.error());
+    when(mockBloc.state)
+        .thenReturn(const StocksListState.error('Something went wrong!'));
 
     await tester.pumpWidget(createTestWidget());
 
-    expect(find.text('Error'), findsOneWidget);
+    expect(find.text('Something went wrong!'), findsOneWidget);
   });
 
   testWidgets('shows stock list when state is content',

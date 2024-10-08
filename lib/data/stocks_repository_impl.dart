@@ -10,6 +10,7 @@ import 'package:stocks_price_tracker/data/mapper/stock_dto_mapper.dart';
 import 'package:stocks_price_tracker/data/mapper/stock_price_dto_mapper.dart';
 import 'package:stocks_price_tracker/domain/model/stock_model.dart';
 import 'package:stocks_price_tracker/domain/stocks_repository.dart';
+import 'package:stocks_price_tracker/network/app_exception.dart';
 import 'package:stocks_price_tracker/network/endpoints.dart';
 import 'package:stocks_price_tracker/network/ws_manager.dart';
 
@@ -29,13 +30,21 @@ class StocksRepositoryImpl implements StocksRepository {
 
   @override
   Future<List<StockModel>> getStocks() async {
-    final response = await _remoteSource.getStocks();
+    try {
+      final response = await _remoteSource.getStocks();
 
-    final list = (response.data as List<dynamic>)
-        .map((e) => StockDto.fromJson(e))
-        .toList();
+      final list = (response.data as List<dynamic>)
+          .map((e) => StockDto.fromJson(e))
+          .toList();
 
-    return list.map((e) => _stockDtoMapper.map(e)).toList();
+      return list.map((e) => _stockDtoMapper.map(e)).toList();
+    } catch (exception) {
+      if (exception is AppException) {
+        rethrow;
+      } else {
+        throw AppException.defaultException();
+      }
+    }
   }
 
   @override
