@@ -13,7 +13,7 @@ Project requirements are simple, display a list of stocks and display live updat
 - Bloc first initializes the state, then calls API to fetch list of Stocks.
 - Bloc then subscribes to WebSocket to start listening for price updates.
 - UI notifies Bloc that X amount of Stocks are now visible on screen, and Bloc starts checking if those Stocks are already subscribed to or not, if not, adds them to a reference list and starts subscribing in the WS by sending a JSON message to the opened connection.
-- Same happens if any stock becomes invisible, UI notifies Bloc and it checks if it was subscribed to, it removes it from reference list and then sends a message to WS to unsubscribe.
+- Same happens if any stock becomes invisible, UI notifies Bloc and it checks if it was subscribed to, it removes it from reference list and then sends a message to WS to unsubscribe. This was made to prevent listening to stocks that are not visible on the screen and to offer on-demand live-pricing.
 - Search bar UI notifies Bloc about text changes and Bloc filters the list (when the data is first fetch it's stored in a reference list) and emits the state with the new filtered list.
 
 As you will notice, Repository is made as a `Singleton` using `injectable` to keep one instance running of the websocket connection held inside of it.
