@@ -2,6 +2,8 @@
 
 A simple Flutter project that displays list of stocks and their live-data prices with search functionality.
 
+Please note that the WS is sometimes slow.
+
 ## Setup
 
 #### Prerequisites to run the project:

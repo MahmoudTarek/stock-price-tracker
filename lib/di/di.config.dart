@@ -10,8 +10,8 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
-import 'package:stocks_price_tracker/data/datasource/stocks_remote_data_source.dart'
-    as _i913;
+import 'package:stocks_price_tracker/data/data_source/stocks_remote_data_source.dart'
+    as _i605;
 import 'package:stocks_price_tracker/data/mapper/stock_dto_mapper.dart'
     as _i674;
 import 'package:stocks_price_tracker/data/mapper/stock_price_dto_mapper.dart'
@@ -47,11 +47,11 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i674.StockDtoMapper>(() => _i674.StockDtoMapper());
     gh.factory<_i879.StockPriceDtoMapper>(() => _i879.StockPriceDtoMapper());
-    gh.lazySingleton<_i913.StocksRemoteDataSource>(
-        () => _i913.StocksRemoteDataSource());
+    gh.lazySingleton<_i605.StocksRemoteDataSource>(
+        () => _i605.StocksRemoteDataSource());
     gh.lazySingleton<_i323.WSManager>(() => _i323.WSManagerImpl());
     gh.lazySingleton<_i324.StocksRepository>(() => _i138.StocksRepositoryImpl(
-          gh<_i913.StocksRemoteDataSource>(),
+          gh<_i605.StocksRemoteDataSource>(),
           gh<_i674.StockDtoMapper>(),
           gh<_i879.StockPriceDtoMapper>(),
           gh<_i323.WSManager>(),

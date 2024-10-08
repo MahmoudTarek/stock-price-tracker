@@ -20,7 +20,6 @@ import 'package:stocks_price_tracker/domain/use_case/subscribe_to_stock_use_case
     as _i7;
 import 'package:stocks_price_tracker/domain/use_case/unsubscribe_from_stock_use_case.dart'
     as _i8;
-import 'package:stocks_price_tracker/network/ws_manager.dart' as _i11;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -117,20 +116,12 @@ class MockUnsubscribeFromStockUseCase extends _i1.Mock
 class MockGetPriceUpdatesUseCase extends _i1.Mock
     implements _i9.GetPriceUpdatesUseCase {
   @override
-  void call({
-    _i10.OnLivePriceUpdateReceived? onMessageReceived,
-    _i11.OnErrorReceived? onErrorReceived,
-    _i11.OnComplete? onComplete,
-  }) =>
+  void call({_i10.OnLivePriceUpdateReceived? onMessageReceived}) =>
       super.noSuchMethod(
         Invocation.method(
           #call,
           [],
-          {
-            #onMessageReceived: onMessageReceived,
-            #onErrorReceived: onErrorReceived,
-            #onComplete: onComplete,
-          },
+          {#onMessageReceived: onMessageReceived},
         ),
         returnValueForMissingStub: null,
       );

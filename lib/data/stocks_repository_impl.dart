@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
-import 'package:stocks_price_tracker/data/datasource/stocks_remote_data_source.dart';
+import 'package:stocks_price_tracker/data/data_source/stocks_remote_data_source.dart';
 import 'package:stocks_price_tracker/data/dto/stock_dto.dart';
 import 'package:stocks_price_tracker/data/dto/stock_price_updates_response_dto.dart';
 import 'package:stocks_price_tracker/data/dto/stock_subscription_dto.dart';
@@ -49,7 +49,8 @@ class StocksRepositoryImpl implements StocksRepository {
 
   @override
   void connectToLiveUpdates() {
-    _wsManager.connect('${Endpoints.pricesWS}?token=${Endpoints.apiKey}');
+    _wsManager.setUrl('${Endpoints.pricesWS}?token=${Endpoints.apiKey}');
+    _wsManager.connect();
   }
 
   @override
@@ -58,22 +59,14 @@ class StocksRepositoryImpl implements StocksRepository {
   }
 
   @override
-  void getStocksPricesUpdates({
-    OnLivePriceUpdateReceived? onMessageReceived,
-    OnErrorReceived? onErrorReceived,
-    OnComplete? onComplete,
-  }) {
-    _wsManager.listen(
-      onMessageReceived: (message) {
-        debugPrint('WS Message: $message');
-        final dto = StockPriceUpdatesResponseDto.fromJson(json.decode(message));
-        dto.data?.forEach((element) {
-          onMessageReceived?.call(_stockPriceDtoMapper.map(element));
-        });
-      },
-      onErrorReceived: onErrorReceived,
-      onComplete: onComplete,
-    );
+  void getStocksPricesUpdates({OnLivePriceUpdateReceived? onMessageReceived}) {
+    _wsManager.listen(onMessageReceived: (message) {
+      debugPrint('WS Message: $message');
+      final dto = StockPriceUpdatesResponseDto.fromJson(json.decode(message));
+      dto.data?.forEach((element) {
+        onMessageReceived?.call(_stockPriceDtoMapper.map(element));
+      });
+    });
   }
 
   @override
