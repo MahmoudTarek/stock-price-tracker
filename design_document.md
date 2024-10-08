@@ -31,6 +31,8 @@ Unit & Widget tests are included to ensure code quality.
 - `visibility_detector` for detection of visible stocks on screen to offer subscription only to shown stocks.
 - `json_annotation` for DTOs and JSON parsing.
 - `freezed` for providing out of the box generated code that's needed, just like `copyWith`.
+- `connectivity` for internet connection checks.
+- `mockito` for testing mocks.
 
 ## Possible improvements
 
